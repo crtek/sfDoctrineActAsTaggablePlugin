@@ -3,13 +3,15 @@
 // the README
 
 function pkInlineTaggableWidget(selector, options)
-{	
+{console.log(options);	
 	$(selector).each(function()
 	{	
 		// Semi-global
 		var typeaheadUrl = options['typeahead-url'];
 		var tagsLabel = (options['tags-label']) ? options['tags-label'] : 'Existing Tags';
 		var popularTagsLabel = (options['popular-tags-label']) ? options['popular-tags-label'] : 'Popular Tags';
+		var addTagLabel = (options['add-tag-label']) ? options['add-tag-label'] : 'Add';
+		var addtheseTagsLabel = (options['add-this-tags-label']) ? options['add-this-tags-label'] : 'Add these tags';
 		var popularTags = options['popular-tags'];
 		var existingTags = {};
 		var allTags = options['all-tags'];
@@ -178,8 +180,8 @@ function pkInlineTaggableWidget(selector, options)
 		}
 		
 		var addButton = $('<a />');
-		addButton.html('<span class="icon"></span>Add');
-		addButton.attr({'href' : '#', 'class' : 'a-btn icon a-add add-tags-link', 'title' : 'Add these tags'});
+		addButton.html('<span class="icon"></span>' + addTagLabel);
+		addButton.attr({'href' : '#', 'class' : 'a-btn icon a-add add-tags-link', 'title' : addtheseTagsLabel});
 
 		typeAheadContainer.addClass('a-inline-taggable-widget').append(typeAheadBox).append(addButton);
 
