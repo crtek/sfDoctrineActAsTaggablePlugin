@@ -3,7 +3,7 @@
 // the README
 
 function pkInlineTaggableWidget(selector, options)
-{console.log(options);	
+{
 	$(selector).each(function()
 	{	
 		// Semi-global
