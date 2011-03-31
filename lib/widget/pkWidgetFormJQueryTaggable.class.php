@@ -11,7 +11,9 @@ class pkWidgetFormJQueryTaggable extends sfWidgetFormInput
 			'commit-event' => null,
 			'popular-tags-label' => null,
 			'add-link-class' => null,
-			'remove-link-class' => null
+			'remove-link-class' => null,
+			'add-tag-label' => null,
+			'add-this-tags-label' => null
 		);
 	
 	protected function configure($options = array(), $attributes = array())
@@ -43,7 +45,7 @@ class pkWidgetFormJQueryTaggable extends sfWidgetFormInput
 		$attributes['id'] = $this->generateId($name);
 		$html = parent::render($name, $value, $attributes, $errors);
 		
-		$html .= "<script type='text/javascript'>$(document).ready(function() { pkInlineTaggableWidget('#" . $attributes['id'] . "', " . stripslashes(json_encode($render_options)) . "); } );</script>";
+		$html .= "<script type='text/javascript'>$(document).ready(function() { pkInlineTaggableWidget('#" . $attributes['id'] . "', " . json_encode($render_options) . "); } );</script>";
 		
 		return $html;
 	}
